@@ -1,14 +1,15 @@
-import React,{useState} from 'react'
+import React from 'react'
+import "../App.css"
 
-const JsonForm = () => {
-  const [jsonInput,setJsonInput] = useState(" ");
+const JsonForm = ({jsonInput,setJsonInput,convertJsonAsNodesAndEdges}) => {
+
   return (
-    <div>
+    <div className='jsonFormDiv'>
         <label>
             Paste JSON to visualise in tree form
         <textarea value={jsonInput} onChange={(e) => setJsonInput(e.target.value)}/>
         </label>
-        <button>Visualise JSON</button>
+        <button onClick={() => convertJsonAsNodesAndEdges()}> Visualise JSON</button>
     </div>
   )
 }
