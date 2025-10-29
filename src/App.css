@@ -14,3 +14,15 @@
 .mainDiv{
   display: flex;
 }
+
+.jsonFormDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.jsonFormDiv textarea{
+  resize: none;
+  width: 400px;
+  min-height: 500px;
+}
