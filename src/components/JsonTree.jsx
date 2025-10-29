@@ -9,11 +9,14 @@ import ReactFlow, {
     Position,
   } from 'reactflow';
 
-const JsonTree = ({incomingNodes, incomingEdges}) => {
+const JsonTree = ({nodes, edges}) => {
 
   return (
     <div className='jsonTreeMainDiv'>
-        <ReactFlow nodes={incomingNodes} edges={incomingEdges}/>
+        <ReactFlow nodes={nodes} edges={edges} fitView>
+          <Background />
+          <Controls />
+        </ReactFlow>
     </div>
   )
 }
