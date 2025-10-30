@@ -105,15 +105,12 @@ body.light .jsonFormDiv textarea {
 }
 
 .theme-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
   padding: 10px 16px;
   border-radius: 20px;
   font-size: 20px;
-  z-index: 1000;
   background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  cursor: pointer;
 }
 
 .node-tooltip {
@@ -159,6 +156,7 @@ body.light .node-tooltip {
 
 .searchBarContainer {
   display: flex;
+  align-items: center;
   gap: 12px;
   padding: 20px 24px;
   backdrop-filter: blur(20px);
@@ -208,6 +206,11 @@ body.light .searchInput {
 .searchButton {
   padding: 12px 28px;
   white-space: nowrap;
+}
+
+.searchBarContainer .theme-toggle {
+  position: static;
+  margin-left: 8px;
 }
 
 .search-message {
@@ -286,9 +289,11 @@ body.light .jsonTreeMainDiv {
 .error-display {
   position: fixed;
   top: 20px;
-  right: 20px;
-  max-width: 400px;
-  padding: 16px 40px 16px 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+  width: auto;
+  padding: 14px 40px 14px 20px;
   background: rgba(239, 68, 68, 0.95);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -298,13 +303,15 @@ body.light .jsonTreeMainDiv {
   box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
   z-index: 1000;
   animation: slideIn 0.3s ease;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .error-display .close-btn,
 .search-message .close-btn {
   position: absolute;
-  top: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 12px;
   background: transparent;
   border: none;
@@ -321,7 +328,7 @@ body.light .jsonTreeMainDiv {
 .search-message .close-btn:hover {
   opacity: 1;
   box-shadow: none;
-  transform: none;
+  transform: translateY(-50%);
 }
 
 @keyframes slideIn {

@@ -38,6 +38,18 @@ body.light {
   width: 100%;
 }
 
+* {
+  cursor: default;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+input, textarea {
+  cursor: text;
+}
+
 button {
   border-radius: 10px;
   border: none;

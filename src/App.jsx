@@ -30,9 +30,6 @@ function App() {
 
   return (
     <>
-    <button className="theme-toggle" onClick={toggleTheme}>
-      {theme === 'dark' ? '☀️' : '🌙'}
-    </button>
     <div className="mainDiv">
       <JsonForm
         jsonInput={jsonInput}
@@ -52,7 +49,7 @@ function App() {
         </div>
       )}
       <div className="treeContainer">
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} theme={theme} toggleTheme={toggleTheme} />
         <JsonTree
           nodes={nodes}
           edges={edges}

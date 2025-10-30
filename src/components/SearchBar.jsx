@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, theme, toggleTheme }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
@@ -27,6 +27,9 @@ const SearchBar = ({ onSearch }) => {
       />
       <button onClick={handleSearch} className='searchButton'>
         Search
+      </button>
+      <button className="theme-toggle" onClick={toggleTheme}>
+        {theme === 'dark' ? '☀️' : '🌙'}
       </button>
     </div>
   )
