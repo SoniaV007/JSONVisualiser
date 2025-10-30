@@ -147,6 +147,44 @@ body.light .node-tooltip {
   margin: 4px 0;
 }
 
+.copied-message {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  background: rgba(34, 197, 94, 0.95);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: fadeInOut 1.5s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
 .treeContainer {
   flex: 1;
   display: flex;
@@ -393,18 +431,32 @@ body.light .jsonTreeMainDiv .react-flow__controls-button:hover {
   }
 
   .treeContainer {
-    height: 600px;
+    min-height: 600px;
+    height: auto;
   }
 
   .jsonTreeMainDiv {
-    height: 100%;
+    min-height: 600px;
+    height: auto;
   }
 
   .searchBarContainer {
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .searchButton {
-    width: 100%;
+  .searchInput {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  .searchButton,
+  .downloadButton {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .theme-toggle {
+    flex: 0 0 auto;
   }
 }

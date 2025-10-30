@@ -87,11 +87,17 @@ const treeConverter = (parsedData, searchPath = null) => {
         if(value !== null && typeof value === 'object'){
             if(Array.isArray(value)){
                 value.forEach((item, index) =>{
-                    processValue(item, `${index}`, nodeId, depth+1, nodePath);
+                    const childResult = processValue(item, `${index}`, nodeId, depth+1, nodePath);
+                    if(childResult.path === searchPath && !matchedNode) {
+                        matchedNode = childResult;
+                    }
                 });
             } else{
                 Object.entries(value).forEach(([childrenKey, childrenValue]) => {
-                    processValue(childrenValue, childrenKey, nodeId, depth+1, nodePath);
+                    const childResult = processValue(childrenValue, childrenKey, nodeId, depth+1, nodePath);
+                    if(childResult.path === searchPath && !matchedNode) {
+                        matchedNode = childResult;
+                    }
                 });
             }
         }
@@ -146,7 +152,7 @@ const treeConverter = (parsedData, searchPath = null) => {
 
             Object.entries(parsedData).forEach(([key, value]) => {
                 const result = processValue(value, key, rootId, 1, '$');
-                if(result.path === searchPath) {
+                if(result.path === searchPath && !matchedNode) {
                     matchedNode = result;
                 }
             });
@@ -190,7 +196,7 @@ const treeConverter = (parsedData, searchPath = null) => {
         }
 
         const result = processValue(parsedData, 'value', rootId, 1, '$');
-        if(result.path === searchPath) {
+        if(result.path === searchPath && !matchedNode) {
             matchedNode = result;
         }
     }

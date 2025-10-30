@@ -31,6 +31,7 @@ const useJsonParser = () => {
   const handleSearch = (path) => {
     if(!parsedData) {
       setSearchMessage('Please visualize JSON first before searching');
+      setMatchedNode(null);
       return;
     }
 
@@ -42,6 +43,7 @@ const useJsonParser = () => {
 
     if(result.matchedNode) {
       setSearchMessage('Match found');
+      setTimeout(() => setSearchMessage(''), 2000);
     } else {
       setSearchMessage('No match found');
     }
