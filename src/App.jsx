@@ -66,6 +66,7 @@ function App() {
           theme={theme}
           toggleTheme={toggleTheme}
           onDownload={handleDownload}
+          nodes={nodes}
         />
         <JsonTree
           nodes={nodes}

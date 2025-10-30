@@ -204,6 +204,11 @@ body.light .node-tooltip {
   transition: background 0.3s ease;
 }
 
+.searchWrapper {
+  flex: 1;
+  position: relative;
+}
+
 body.dark .searchBarContainer {
   background: rgba(15, 23, 42, 0.95);
 }
@@ -213,7 +218,7 @@ body.light .searchBarContainer {
 }
 
 .searchInput {
-  flex: 1;
+  width: 100%;
   padding: 12px 16px;
   font-size: 14px;
   font-family: 'Fira Code', 'Courier New', monospace;
@@ -221,6 +226,62 @@ body.light .searchBarContainer {
   border-radius: 10px;
   outline: none;
   transition: all 0.3s ease;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+body.dark .suggestions {
+  background: rgba(30, 41, 59, 0.95);
+}
+
+body.light .suggestions {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.suggestion-item {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+body.dark .suggestion-item {
+  color: #e2e8f0;
+}
+
+body.light .suggestion-item {
+  color: #1e293b;
+}
+
+body.dark .suggestion-item:hover,
+body.dark .suggestion-item.selected {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8B5CF6;
+}
+
+body.light .suggestion-item:hover,
+body.light .suggestion-item.selected {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
 }
 
 body.dark .searchInput {
