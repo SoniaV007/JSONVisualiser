@@ -18,7 +18,7 @@ const treeConverter = (parsedData, searchPath = null) => {
         } else if(key.match(/^\d+$/)) {
             nodePath = currentPath + `[${key}]`;
         } else {
-            nodePath = currentPath + (currentPath === '$' ? '' : '.') + key;
+            nodePath = currentPath + (currentPath === '$' ? '.' : '.') + key;
         }
 
         const isMatch = searchPath && nodePath === searchPath;
