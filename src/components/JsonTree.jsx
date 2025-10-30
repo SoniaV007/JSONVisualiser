@@ -9,6 +9,12 @@ import ReactFlow, {
     useReactFlow,
   } from 'reactflow';
 
+import CustomNode from './CustomNode';
+
+const nodeTypes = {
+  default: CustomNode,
+};
+
 const JsonTreeContent = ({nodes, edges, matchedNode}) => {
   const reactFlowInstance = useReactFlow();
   const prevMatchedNode = useRef(null);
@@ -28,7 +34,7 @@ const JsonTreeContent = ({nodes, edges, matchedNode}) => {
   }, [matchedNode, nodes, reactFlowInstance]);
 
   return (
-    <ReactFlow nodes={nodes} edges={edges} fitView>
+    <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} fitView>
       <Background />
       <Controls />
     </ReactFlow>

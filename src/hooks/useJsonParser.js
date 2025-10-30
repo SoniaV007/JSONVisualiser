@@ -11,6 +11,7 @@ const useJsonParser = () => {
   const [searchPath, setSearchPath] = useState(null);
   const [matchedNode, setMatchedNode] = useState(null);
   const [searchMessage, setSearchMessage] = useState('');
+  const [theme, setTheme] = useState('dark');
 
   const parseAndConvert = () => {
     try{
@@ -46,16 +47,36 @@ const useJsonParser = () => {
     }
   }
 
+  const clearAll = () => {
+    setJsonInput('');
+    setNodes([]);
+    setEdges([]);
+    setParsedData(null);
+    setSearchPath(null);
+    setMatchedNode(null);
+    setSearchMessage('');
+    setError(null);
+  }
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  }
+
   return  {
     jsonInput,
     setJsonInput,
     nodes,
     edges,
     error,
+    setError,
     parseAndConvert,
     handleSearch,
     matchedNode,
-    searchMessage
+    searchMessage,
+    setSearchMessage,
+    clearAll,
+    theme,
+    toggleTheme
   };
 }
 
