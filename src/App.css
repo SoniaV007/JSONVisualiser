@@ -118,16 +118,17 @@ body.light .jsonFormDiv textarea {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 8px;
-  padding: 8px 12px;
+  margin-bottom: 12px;
+  padding: 10px 16px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 13px;
   white-space: nowrap;
-  z-index: 1000;
+  z-index: 10000;
   pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
   transition: opacity 0.2s;
+  min-width: 200px;
 }
 
 body.dark .node-tooltip {

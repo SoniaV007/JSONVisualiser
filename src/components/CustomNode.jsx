@@ -10,9 +10,8 @@ const CustomNode = ({ data }) => {
       onMouseLeave={() => setShowTooltip(false)}
       style={{
         position: 'relative',
-        maxWidth: '100%',
-        wordWrap: 'break-word',
-        overflow: 'hidden'
+        width: '100%',
+        height: '100%'
       }}
     >
       <Handle
@@ -20,12 +19,7 @@ const CustomNode = ({ data }) => {
         position={Position.Top}
         style={{ visibility: 'hidden' }}
       />
-      <div style={{
-        wordWrap: 'break-word',
-        whiteSpace: 'normal',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis'
-      }}>
+      <div>
         {data.label}
       </div>
       <Handle

@@ -67,8 +67,6 @@ const treeConverter = (parsedData, searchPath = null) => {
                 backdropFilter: "blur(10px)",
                 maxWidth: "220px",
                 wordWrap: "break-word",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
                 whiteSpace: "normal",
                 minWidth: "100px"
             }
