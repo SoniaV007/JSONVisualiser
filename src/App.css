@@ -204,9 +204,14 @@ body.light .searchInput {
   color: #64748b;
 }
 
-.searchButton {
+.searchButton,
+.downloadButton {
   padding: 12px 28px;
   white-space: nowrap;
+}
+
+.downloadButton {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .searchBarContainer .theme-toggle {

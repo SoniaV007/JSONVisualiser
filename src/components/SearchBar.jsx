@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SearchBar = ({ onSearch, theme, toggleTheme }) => {
+const SearchBar = ({ onSearch, theme, toggleTheme, onDownload }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = () => {
@@ -27,6 +27,9 @@ const SearchBar = ({ onSearch, theme, toggleTheme }) => {
       />
       <button onClick={handleSearch} className='searchButton'>
         Search
+      </button>
+      <button onClick={onDownload} className='downloadButton'>
+        Download
       </button>
       <button className="theme-toggle" onClick={toggleTheme}>
         {theme === 'dark' ? '☀️' : '🌙'}

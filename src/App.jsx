@@ -3,7 +3,7 @@ import JsonForm from './components/JsonForm'
 import JsonTree from './components/JsonTree'
 import ErrorDisplay from './components/ErrorDisplay'
 import SearchBar from './components/SearchBar'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import useJsonParser from './hooks/useJsonParser'
 
 function App() {
@@ -24,9 +24,21 @@ function App() {
     toggleTheme
   } = useJsonParser();
 
+  const downloadHandlerRef = useRef(null);
+
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
+
+  const handleDownload = () => {
+    if(downloadHandlerRef.current && nodes.length > 0) {
+      downloadHandlerRef.current();
+    }
+  };
+
+  const setDownloadHandler = (handler) => {
+    downloadHandlerRef.current = handler;
+  };
 
   return (
     <>
@@ -49,11 +61,17 @@ function App() {
         </div>
       )}
       <div className="treeContainer">
-        <SearchBar onSearch={handleSearch} theme={theme} toggleTheme={toggleTheme} />
+        <SearchBar
+          onSearch={handleSearch}
+          theme={theme}
+          toggleTheme={toggleTheme}
+          onDownload={handleDownload}
+        />
         <JsonTree
           nodes={nodes}
           edges={edges}
           matchedNode={matchedNode}
+          onDownloadReady={setDownloadHandler}
         />
       </div>
     </div>
