@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import treeConverter from '../utils/treeConverter';
 import jsonValidator from '../utils/jsonValidator';
 
@@ -7,17 +7,42 @@ const useJsonParser = () => {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [error, setError] = useState(null);
+  const [parsedData, setParsedData] = useState(null);
+  const [searchPath, setSearchPath] = useState(null);
+  const [matchedNode, setMatchedNode] = useState(null);
+  const [searchMessage, setSearchMessage] = useState('');
 
   const parseAndConvert = () => {
     try{
         const parsed = jsonValidator({jsonString : jsonInput});
-        const {nodes, edges} = treeConverter(parsed);
-        setNodes(nodes);
-        setEdges(edges);
+        setParsedData(parsed);
+        const result = treeConverter(parsed, searchPath);
+        setNodes(result.nodes);
+        setEdges(result.edges);
+        setMatchedNode(result.matchedNode);
         setError(null);
     }
-    catch (error){
-        setError(error);
+    catch (err){
+        setError(err.message);
+    }
+  }
+
+  const handleSearch = (path) => {
+    if(!parsedData) {
+      setSearchMessage('Please visualize JSON first before searching');
+      return;
+    }
+
+    setSearchPath(path);
+    const result = treeConverter(parsedData, path);
+    setNodes(result.nodes);
+    setEdges(result.edges);
+    setMatchedNode(result.matchedNode);
+
+    if(result.matchedNode) {
+      setSearchMessage('Match found');
+    } else {
+      setSearchMessage('No match found');
     }
   }
 
@@ -27,7 +52,10 @@ const useJsonParser = () => {
     nodes,
     edges,
     error,
-    parseAndConvert
+    parseAndConvert,
+    handleSearch,
+    matchedNode,
+    searchMessage
   };
 }
 

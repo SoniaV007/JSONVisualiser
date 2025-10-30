@@ -2,7 +2,9 @@ import React from 'react'
 
 const ErrorDisplay = ({message}) => {
   return (
-    <div>{message}</div>
+    <div className="error-display">
+      <strong>Error:</strong> {message}
+    </div>
   )
 }
 
