@@ -32,4 +32,3 @@ Use JSON path notation to search for nodes:
 - React
 - Vite
 - ReactFlow
-- Zustand
