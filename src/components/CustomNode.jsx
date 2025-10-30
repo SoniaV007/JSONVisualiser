@@ -10,9 +10,17 @@ const CustomNode = ({ data }) => {
       onMouseLeave={() => setShowTooltip(false)}
       style={{ position: 'relative' }}
     >
-      <Handle type="target" position={Position.Top} />
+      <Handle
+        type="target"
+        position={Position.Top}
+        style={{ visibility: 'hidden' }}
+      />
       <div>{data.label}</div>
-      <Handle type="source" position={Position.Bottom} />
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        style={{ visibility: 'hidden' }}
+      />
 
       {showTooltip && (
         <div className="node-tooltip">

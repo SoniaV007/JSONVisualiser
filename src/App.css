@@ -70,7 +70,7 @@ body.dark .jsonFormDiv textarea {
 body.light .jsonFormDiv textarea {
   background: rgba(255, 255, 255, 0.8);
   color: #1e293b;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 
 .jsonFormDiv textarea:focus {
@@ -267,23 +267,46 @@ body.light .jsonTreeMainDiv {
   stroke-width: 2;
 }
 
-.jsonTreeMainDiv .react-flow__controls {
+body.dark .jsonTreeMainDiv .react-flow__controls {
   background: rgba(30, 41, 59, 0.9);
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.jsonTreeMainDiv .react-flow__controls-button {
+body.light .jsonTreeMainDiv .react-flow__controls {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .jsonTreeMainDiv .react-flow__controls-button {
   background: transparent;
   border: none;
   color: #e2e8f0;
   transition: all 0.2s;
 }
 
-.jsonTreeMainDiv .react-flow__controls-button:hover {
+body.light .jsonTreeMainDiv .react-flow__controls-button {
+  background: transparent;
+  border: none;
+  color: #1e293b;
+  transition: all 0.2s;
+}
+
+body.dark .jsonTreeMainDiv .react-flow__controls-button:hover {
   background: rgba(139, 92, 246, 0.2);
   color: #8B5CF6;
+}
+
+body.light .jsonTreeMainDiv .react-flow__controls-button:hover {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8B5CF6;
+}
+
+.react-flow__attribution {
+  display: none !important;
 }
 
 .error-display {
