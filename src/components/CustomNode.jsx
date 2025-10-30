@@ -8,14 +8,26 @@ const CustomNode = ({ data }) => {
     <div
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
-      style={{ position: 'relative' }}
+      style={{
+        position: 'relative',
+        maxWidth: '100%',
+        wordWrap: 'break-word',
+        overflow: 'hidden'
+      }}
     >
       <Handle
         type="target"
         position={Position.Top}
         style={{ visibility: 'hidden' }}
       />
-      <div>{data.label}</div>
+      <div style={{
+        wordWrap: 'break-word',
+        whiteSpace: 'normal',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }}>
+        {data.label}
+      </div>
       <Handle
         type="source"
         position={Position.Bottom}

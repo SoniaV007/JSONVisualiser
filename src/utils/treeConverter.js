@@ -64,7 +64,13 @@ const treeConverter = (parsedData, searchPath = null) => {
                 boxShadow: isMatch
                     ? "0 0 20px rgba(251, 191, 36, 0.6), 0 8px 16px rgba(0, 0, 0, 0.3)"
                     : "0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset",
-                backdropFilter: "blur(10px)"
+                backdropFilter: "blur(10px)",
+                maxWidth: "220px",
+                wordWrap: "break-word",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "normal",
+                minWidth: "100px"
             }
         };
 
